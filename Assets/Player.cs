@@ -34,11 +34,11 @@ public class Player : MonoBehaviour
 
         if (horiozntal > 0 && _facingRight)
         {
-            Flip();
+            FlipRotate();
         }
         if (horiozntal < 0 && _facingRight == false)
         {
-            Flip();
+            FlipRotate();
         }
     }
     
@@ -47,6 +47,15 @@ public class Player : MonoBehaviour
         Vector3 currentScale = gameObject.transform.localScale;
         currentScale.x *= -1;
         gameObject.transform.localScale = currentScale;
+
+        _facingRight = !_facingRight;
+    }
+
+    private void FlipRotate()
+    {
+        Vector3 currentRotate = gameObject.transform.localEulerAngles;
+        currentRotate.y += 180;
+        gameObject.transform.localEulerAngles = currentRotate;
 
         _facingRight = !_facingRight;
     }
