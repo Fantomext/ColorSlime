@@ -19,10 +19,7 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            _rigidbody2D.AddForce(new Vector2(0f, _jumpPower), 0f);
-        }
+        
     }
 
     private void FixedUpdate()
