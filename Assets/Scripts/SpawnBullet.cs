@@ -17,7 +17,7 @@ public class SpawnBullet : MonoBehaviour
     private void Awake()
     {
         _mainColorManager = FindObjectOfType<MainColorManager>();
-        _colorList = _mainColorManager.ListAllColorsMain();
+        _colorList = _mainColorManager.AllColorsMain();
     }
 
     // Update is called once per frame
