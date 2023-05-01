@@ -180,6 +180,9 @@ MonoBehaviour:
   wall: {fileID: 0}
   _player: {fileID: 0}
   _facingRight: 0
+  dieEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!50 &4427000275799954770
 Rigidbody2D:
   serializedVersion: 4

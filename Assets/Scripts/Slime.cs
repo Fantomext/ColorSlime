@@ -1,12 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Slime : MonoBehaviour
 {
     [SerializeField] private float _speed = 5f; 
     private Collider2D _slimeColider;
-    private SpriteRenderer spriteSlime;
     private Rigidbody2D _rigidbody2D;
     [SerializeField] MainColorManager mainColor;
     [SerializeField] List<Color> mainColors = new List<Color>();
@@ -28,11 +28,15 @@ public class Slime : MonoBehaviour
         mixColors = mainColor.AllColorsMix();
         randomColor = Random.Range(0, 4);
         GetComponentInChildren<SpriteRenderer>().color = new Color(mainColors[randomColor].r, mainColors[randomColor].g, mainColors[randomColor].b);
-        spriteSlime = GetComponentInChildren<SpriteRenderer>();
         _rigidbody2D = GetComponent<Rigidbody2D>();
         wall = GameObject.Find("FencyTail").GetComponent<Collider2D>();
         Physics2D.IgnoreCollision(_slimeColider, wall);
         
+    }
+
+    private void Update()
+    {
+        DieCheck();
     }
 
     private void FixedUpdate()
@@ -50,7 +54,7 @@ public class Slime : MonoBehaviour
             FlipRotate();
         }
 
-        DieCheck();
+        
 
     }
 
@@ -59,6 +63,7 @@ public class Slime : MonoBehaviour
         Color currentColor = GetComponentInChildren<SpriteRenderer>().color;
         if (new Color(currentColor.r, currentColor.g, currentColor.b) == new Color(mainColor.MainColor().r, mainColor.MainColor().g, mainColor.MainColor().b))
         {
+            Debug.Log("wtf");
             score.AddScore(50);
             score.UpdateScore();
             _animator.SetTrigger("isDead");

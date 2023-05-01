@@ -6,7 +6,7 @@ using TMPro;
 public class Score : MonoBehaviour
 {
     [SerializeField] private TMP_Text _text;
-    private int _score = 0;
+    [SerializeField] private int _score = 0;
 
     private void Update()
     {
@@ -14,7 +14,7 @@ public class Score : MonoBehaviour
     }
     public void AddScore(int value)
     {
-        _score += value;
+        _score++;
     }
 
     public void UpdateScore()

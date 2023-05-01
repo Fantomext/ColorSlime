@@ -44,7 +44,7 @@ public class PlayerHealth : MonoBehaviour
     
   public void RestartLvl()
     {
-        SceneManager.LoadScene("Play");
+        SceneManager.LoadScene("Menu");
     }
 
     public void Heal(int heal)
