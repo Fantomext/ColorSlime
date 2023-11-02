@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    Rigidbody2D _rigidbody2D;
+    [SerializeField] Rigidbody2D _rigidbody2D;
     [SerializeField] private float _speed = 5f;
     [SerializeField] private float _jumpPower = 15f;
     [SerializeField] private bool _facingRight = false;
@@ -13,12 +13,6 @@ public class Player : MonoBehaviour
     [SerializeField] private float _frictionWalkSpeed = 1f;
     [SerializeField] private FixedJoystick _fixedJoystickMove;
     [SerializeField] private bool _isWalking = false;
-
-    private void Start()
-    {
-        _rigidbody2D = GetComponent<Rigidbody2D>();
-    }
-
 
     private void FixedUpdate()
     {

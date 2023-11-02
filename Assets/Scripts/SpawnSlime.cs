@@ -7,6 +7,7 @@ public class SpawnSlime : MonoBehaviour
     [SerializeField]GameObject _slimePrefab;
     private float timer = 0;
     [SerializeField] private float timerToSpawn = 4f;
+    [SerializeField] private EnemyManager _enemyManager;
 
     void Update()
     {
@@ -14,7 +15,8 @@ public class SpawnSlime : MonoBehaviour
         if (timer > timerToSpawn)
         {
             timer = 0;
-            Instantiate(_slimePrefab, transform.position, Quaternion.identity);
+            GameObject slime = Instantiate(_slimePrefab, transform.position, Quaternion.identity);
+            _enemyManager.AddSlime(slime);
         }
     }
 }
